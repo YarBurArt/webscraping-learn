@@ -15,10 +15,10 @@ class PythonOrgSearch(TestCase):  # as decorator what its test for unittest.main
         driver = self.driver
         driver.get("http://www.python.org")
         self.assertIn("Python", driver.title)  # as assert ... not in ...
-        elem = driver.find_element("name", "q")  # find input tag
-        elem.send_keys("pycon")  # send pycon to input tag
+        area_search = driver.find_element("name", "q")  # find input tag
+        area_search.send_keys("pycon")  # send pycon to input tag
         assert "No results found." not in driver.page_source
-        elem.send_keys(Keys.RETURN)
+        area_search.send_keys(Keys.RETURN)
 
     def tearDown(self):  # end test in unittest.main()
         self.driver.close()  # or .quit() for go out from browser
