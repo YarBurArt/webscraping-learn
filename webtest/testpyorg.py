@@ -1,14 +1,14 @@
 from unittest import main, TestCase
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 
 class PythonOrgSearch(TestCase):  # as decorator what its test for unittest.main()
     def setUp(self):  # start test in unittest.main()
         # chromedriver = "H:\\code\\python\\chromedriver_win32\\chromedriver.exe"
-        chromedriver = ChromeService(ChromeDriverManager().install())
+        chromedriver = Service(ChromeDriverManager().install())
         self.driver = Chrome(service=chromedriver)
 
     def test_search_in_python_org(self):  # body test
