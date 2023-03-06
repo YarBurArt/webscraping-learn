@@ -1,7 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+
 import time
+
+# from bs4 import BeautifulSoup
+
 
 options = webdriver.ChromeOptions()
 options.add_argument("--disable-blink-features=AutomationControlled")
@@ -22,6 +26,8 @@ driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
 try:
     driver.get("https://anycoindirect.eu")
     time.sleep(10)
+    # print(driver.page_source)
+    # soup = BeautifulSoup(driver.page_source, 'lxml')
 
 except Exception as e:
     print(e)
