@@ -25,5 +25,5 @@ if __name__ == "__main__":
     mess = input("Type your message: ")
     print(send_email(message=mess))
 
-import os
-os.environ["DEBUSSY"] = "1"
+# import os
+# os.environ["DEBUSSY"] = "1"
