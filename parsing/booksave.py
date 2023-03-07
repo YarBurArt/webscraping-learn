@@ -5,7 +5,7 @@ import json
 
 from progress.bar import Bar
 
-bar = Bar("Check and downloading", max=1000000)
+bar = Bar("Check and downloading", max=10000)
 
 
 def stolen_library():
