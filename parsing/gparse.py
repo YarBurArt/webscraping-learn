@@ -12,7 +12,7 @@ snew_class = 'kvH3mc'  # edit if don't work
 page = requests.get(url, headers=headers)
 
 
-def search_results(soup, cls):
+def search_results(soup, cls, is_save=False):
     results = []
     for g in soup.find_all('div', class_=cls):
         anchors = g.find_all('a')
@@ -24,13 +24,14 @@ def search_results(soup, cls):
                 "link": link
             }
             results.append(item)
+    if is_save:
+        with open(f"data/{query}_go.json", "w") as write_file:
+            json.dump(res, write_file)
     return results
 
 
-if page.status_code == 200:
-    soup = BeautifulSoup(page.content, "lxml")
-    res = search_results(soup, snew_class)
-    print(res)
-
-    with open(f"data/{query}_go.json", "w") as write_file:
-        json.dump(res, write_file)
+if __name__ == "__main__":
+    if page.status_code == 200:
+        soup = BeautifulSoup(page.content, "lxml")
+        res = search_results(soup, snew_class)
+        print(res)
