@@ -21,6 +21,11 @@ class MyTestCase(unittest.TestCase):
         self.driver = Chrome(service=chromedriver)  # , options=chrome_options)
 
     def test_search(self):
+        """
+        this function expands the description
+        and parameters of the product and reads them, 
+        then saves to json
+        """
         driver = self.driver
         driver.get("https://www.wildberries.ru/catalog/124629300/detail.aspx")
         driver.maximize_window()
@@ -59,6 +64,7 @@ class MyTestCase(unittest.TestCase):
             json.dump(out_data, write_file)
 
     def tearDown(self):
+        # end test
         self.driver.close()
 
 
