@@ -11,7 +11,12 @@ import json
 
 
 class MyTestCase(unittest.TestCase):
+    """
+    it is more convenient for me to 
+    work with selenium through the test
+    """
     def setUp(self):
+        # selenium initialization and its settings
         chromedriver = ChromeService(ChromeDriverManager().install())
         self.driver = Chrome(service=chromedriver)  # , options=chrome_options)
 
