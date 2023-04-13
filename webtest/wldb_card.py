@@ -12,11 +12,21 @@ import pandas as pd
 
 
 class MyTestCase(unittest.TestCase):
+    """
+    it is more convenient for me to 
+    work with selenium through the test
+    """
     def setUp(self):
+        # selenium initialization and its settings
         chromedriver = ChromeService(ChromeDriverManager().install())
         self.driver = Chrome(service=chromedriver)  # , options=chrome_options)
 
     def test_search(self):
+        """
+        this function expands the description
+        and parameters of the product and reads them, 
+        then saves to json
+        """
         driver = self.driver
         driver.get("https://www.wildberries.ru/catalog/124629300/detail.aspx")
         driver.maximize_window()
@@ -76,6 +86,7 @@ class MyTestCase(unittest.TestCase):
         df.to_excel('data/wldt.xlsx')
 
     def tearDown(self):
+        # end test
         self.driver.close()
 
 
