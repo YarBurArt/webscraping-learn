@@ -1,4 +1,5 @@
 import requests
+# parse ucoz domens follow site
 
 i = ["style.css", "style2.css"]
 prox = {
