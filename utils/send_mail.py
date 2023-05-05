@@ -3,9 +3,9 @@ from smtplib import SMTP
 from os import getenv
 
 
-def send_email(message):
-    sender = "yaroslav.chayk@gmail.com"
-    password = getenv("EMAIL_PASSWORD")
+def send_email(message) -> str:
+    sender: str = "yaroslav@example.com"
+    password: str = getenv("EMAIL_PASSWORD")
     server = SMTP("smtp.gmail.com", 587)
 
     server.starttls()
@@ -22,8 +22,6 @@ def send_email(message):
 
 
 if __name__ == "__main__":
-    mess = input("Type your message: ")
+    mess: str = input("Type your message: ")
     print(send_email(message=mess))
 
-# import os
-# os.environ["DEBUSSY"] = "1"
