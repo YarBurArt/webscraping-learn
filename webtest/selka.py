@@ -6,8 +6,8 @@ from selenium.webdriver.firefox.options import Options
 
 
 profile_path = r'C:\\Users\\user\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\1793b34j.default'
-options = Options()
-options.set_preference('profile', profile_path)
+Options().\
+set_preference('profile', profile_path)
 service = Service(r'D:\\geckodriverFrifox')
 
 driver = webdriver.Firefox(service=service, options=options)
