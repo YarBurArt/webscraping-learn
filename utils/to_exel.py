@@ -1,5 +1,5 @@
 import pandas as pd
-
+# my mini cheat 
 df = pd.DataFrame({'Name': ['Manchester City', 'Real Madrid', 'Liverpool',
                             'FC Bayern München', 'FC Barcelona', 'Juventus'],
                    'League': ['English Premier League (1)', 'Spain Primera Division (1)',
