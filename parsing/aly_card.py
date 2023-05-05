@@ -24,7 +24,7 @@ def get_page() -> BeautifulSoup:
     return BeautifulSoup(page.text, 'lxml')
 
 
-def find_elements(soup: BeautifulSoup):
+def find_elements(soup: BeautifulSoup) -> None:
     """The function for find elements and add to data"""
     global data
 
@@ -44,7 +44,7 @@ def find_elements(soup: BeautifulSoup):
         print("site block me, try add ebalay magic")
 
 
-def export_exel(data_s: pd.DataFrame):
+def export_exel(data_s: pd.DataFrame) -> None:
     data_s.to_excel("data/ali_data_product.xlsx")
 
 
