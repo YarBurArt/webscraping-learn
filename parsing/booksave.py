@@ -61,9 +61,9 @@ def stolen_library():
                 # "body": outtext,
             })
         try:
-            # with open(f"data/lib_pg_book.json", 'a', encoding="utf-8") as file:
-            #     json.dump(data, file,
-            #               ensure_ascii=False)
+            with open(f"data/lib_pg_book.json", 'a', encoding="utf-8") as file:
+                json.dump(data, file,
+                          ensure_ascii=False)
             logging.info("File saved successfully")
         except (FileExistsError, OSError, InterruptedError) as e:
             logging.error("File was not saved, ERROR: {e}")
