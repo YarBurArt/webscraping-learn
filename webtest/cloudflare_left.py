@@ -4,7 +4,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 import time
 
-# from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 
 
 options = webdriver.ChromeOptions()
@@ -26,8 +26,8 @@ driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
 try:
     driver.get("https://anycoindirect.eu")
     time.sleep(10)
-    # print(driver.page_source)
-    # soup = BeautifulSoup(driver.page_source, 'lxml')
+    print(driver.page_source)
+    soup = BeautifulSoup(driver.page_source, 'lxml')
 
 except Exception as e:
     print(e)
