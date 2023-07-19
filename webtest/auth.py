@@ -1,5 +1,5 @@
 from selenium import webdriver
-
+# sample authorization test 
 
 chromedriver = "H:\\code\\python\\chromedriver_win32\\chromedriver.exe"
 browser = webdriver.Chrome(executable_path=chromedriver)

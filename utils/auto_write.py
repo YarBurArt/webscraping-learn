@@ -1,5 +1,6 @@
-import pyautogui as pg
+from pyautogui import typewrite
 import time
+# auto write for zen perfect 
 
 x1 = '''
 import requests as rq 
@@ -25,7 +26,7 @@ def write(s, x):
     i = 0
     while i < len(x):
         n = s[i]
-        pg.typewrite(n, interval=0.10)
+        typewrite(n, interval=0.10)
         # print(i)
         i = i + 1
 
