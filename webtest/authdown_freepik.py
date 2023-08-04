@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from selenium.webdriver import Edge
 from selenium.webdriver.chrome.service import Service as EdgeService
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
