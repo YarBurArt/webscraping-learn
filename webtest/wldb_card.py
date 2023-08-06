@@ -1,13 +1,18 @@
+# -*- coding: utf-8 -*-
+""" Made by YarBurArt
+Tests the operation of cards, taking their data
+Run only as an independent script
+"""
 import unittest
+import time
+import json
 
-from selenium.webdriver import Chrome, ChromeOptions
+from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 
 from bs4 import BeautifulSoup
-import time
-import json
 import pandas as pd
 
 
@@ -31,10 +36,8 @@ class MyTestCase(unittest.TestCase):
         driver.get("https://www.wildberries.ru/catalog/124629300/detail.aspx")
         driver.maximize_window()
         time.sleep(10)
-        detail_param_elem = driver.find_element(By.CLASS_NAME, "j-parameters-btn")
-        detail_desc_elem = driver.find_element(By.CLASS_NAME, "j-description-btn")
-        detail_param_elem.click()
-        detail_desc_elem.click()
+        driver.find_element(By.CLASS_NAME, "j-parameters-btn").click()
+        driver.find_element(By.CLASS_NAME, "j-description-btn").click()
         time.sleep(5)
 
         soup = BeautifulSoup(driver.page_source, 'lxml')
@@ -47,8 +50,7 @@ class MyTestCase(unittest.TestCase):
         tables = soup.find_all('table', class_="product-params__table")
 
         for table in tables:
-            table_body = table.find('tbody')
-            rows = table_body.find_all('tr')
+            rows = table.find('tbody').find_all('tr')
 
             for row in rows:
                 cols = row.find_all('th')
@@ -78,12 +80,11 @@ class MyTestCase(unittest.TestCase):
             "name": [],
             "param": []
         }
-        for x, y in result_params.items():
-            out_data["name"].append(x)
-            out_data["param"].append(y)
+        for i, j in result_params.items():
+            out_data["name"].append(i)
+            out_data["param"].append(j)
 
-        df = pd.DataFrame(out_data)
-        df.to_excel('data/wldt.xlsx')
+        pd.DataFrame(out_data).to_excel('data/wldt.xlsx')
 
     def tearDown(self):
         # end test

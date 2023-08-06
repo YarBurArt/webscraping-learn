@@ -1,16 +1,23 @@
 # -*- coding: utf-8 -*-
+""" Made by YarBurArt
+It can be used as a module or an independent script.
+The code first logs in to the Freepik website using the specified
+login email and password. Then, it downloads the image from the specified URL.
+"""
+import random
+import time
+import re
+
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
+# The above it's for simplify driver installation
 from selenium.webdriver import Edge
 from selenium.webdriver.chrome.service import Service as EdgeService
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
-# The above is a simplification for installing the driver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.remote.webelement import WebElement
 # The above it's for web element identification, wait conditions, and wait times
-import random
-import time
-import re
+
 
 # Create a service object for the EdgeDriver and setup core driver object
 chromedriver = EdgeService(EdgeChromiumDriverManager().install())
@@ -18,11 +25,13 @@ browser = Edge(service=chromedriver)
 
 
 def isvalid_email(email: str) -> bool:
+    """checking the correct email"""
     regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
     return bool(re.fullmatch(regex, email))
 
 
 def isvalid_url(url: str) -> bool:
+    """checking the correct url"""
     regex = re.compile(r'^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.'
                        r'[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$')
     return bool(re.fullmatch(regex, url))
@@ -48,7 +57,8 @@ def sing_in(login_email_user: str, password_user: str) -> WebElement | None:
     :param password_user: password of 6 - 60 characters (restriction from this site)
     :return: WebElement avatar image if all good
     """
-    assert isvalid_email(login_email_user) and login_email_user != password_user, "Invalid login or password"
+    assert isvalid_email(login_email_user), "Invalid login or password"
+    assert (login_email_user != password_user), "Invalid login or password"
 
     # launching the browser and waiting for the page to load fully
     start_url = 'https://ru.freepik.com/'
@@ -68,11 +78,13 @@ def sing_in(login_email_user: str, password_user: str) -> WebElement | None:
     # find password and login fields by css selector
     email = browser.find_element(
         By.CSS_SELECTOR,
-        '#log-in > div.native-sign > form > div.form-item.form-item--email > label > input[type=text]'
+        '#log-in > div.native-sign > form > div.form-item.form-item--email '
+        '> label > input[type=text]'
     )
     paswd = browser.find_element(
         By.CSS_SELECTOR,
-        '#log-in > div.native-sign > form > div.form-item.form-item--password > label > input[type=password]'
+        '#log-in > div.native-sign > form > div.form-item.form-item--password '
+        '> label > input[type=password]'
     )
     login_btt = browser.find_element(By.CSS_SELECTOR, '#submit')
     # human-simulated input
@@ -85,10 +97,14 @@ def sing_in(login_email_user: str, password_user: str) -> WebElement | None:
     if browser.current_url == start_url:
         return browser.find_element(
             By.CSS_SELECTOR,
-            "#navigation > div > div > div.gr-auth.gr-auth--logged.gr-auth--not-premium.gr-auth--not-essential > "
-            "div.gr-auth__connected > div > div.popover.popover--mobile-fullscreen.popover--bottom-right.popover--width"
+            "#navigation > div > div > div.gr-auth.gr-auth--logged."
+            "gr-auth--not-premium.gr-auth--not-essential > "
+            "div.gr-auth__connected > div > div.popover.popover--"
+            "mobile-fullscreen.popover--bottom-right.popover--width"
             "-xs.block.gr-auth__popover.gr-auth__popover--new-home > button > div "
-            "> span.avatar.avatar--xs.avatar--circle > img")
+            "> span.avatar.avatar--xs.avatar--circle > img"
+        )
+    return None
 
 
 def download_url(url_img: str) -> None:
@@ -108,7 +124,8 @@ def download_url(url_img: str) -> None:
     pre_download.click()
     download = browser.find_element(
         By.CSS_SELECTOR,
-        '#main > div > aside > div.detail__actions > div.detail__download > div.selection-download-wrapper > div > div '
+        '#main > div > aside > div.detail__actions > div.detail__download '
+        '> div.selection-download-wrapper > div > div '
         '> div.download-resource-container > div.popover.popover--bottom-right.noscript > '
         'button.download-button.button.button--md.button--green.button--fullwidth'
     )
@@ -116,8 +133,8 @@ def download_url(url_img: str) -> None:
 
 
 if __name__ == "__main__":
-    url_link = 'https://ru.freepik.com/free-photo/view-of-city-with-apartment-' \
+    URL_LINK = 'https://ru.freepik.com/free-photo/view-of-city-with-apartment-' \
                'buildings-and-green-vegetation_43468051.htm#&position=7&from_view=collections'
     sing_in("example@email.com",
             "python~test_auth~down")
-    download_url(url_link)
+    download_url(URL_LINK)

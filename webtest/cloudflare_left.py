@@ -1,8 +1,13 @@
+# -*- coding: utf-8 -*-
+""" Made by YarBurArt
+This is just a sketch to bypass cloudflare
+"""
+import time
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.common.exceptions import TimeoutException
 from webdriver_manager.chrome import ChromeDriverManager
-
-import time
 
 from bs4 import BeautifulSoup
 
@@ -28,9 +33,7 @@ try:
     time.sleep(10)
     print(driver.page_source)
     soup = BeautifulSoup(driver.page_source, 'lxml')
-
-except Exception as e:
+except TimeoutException as e:
     print(e)
 finally:
     driver.close()
-
