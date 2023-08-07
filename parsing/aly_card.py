@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+""" Made by YarBurArt
+script for parsing cards from alik
+"""
 import requests as rq
 from requests.models import Response
 from bs4 import BeautifulSoup
@@ -18,15 +22,23 @@ data: dict = {
 
 def get_page() -> BeautifulSoup:
     """The function for save html page to RAM"""
-    #https://aliexpress.ru/item/2044891395.html?sub=44981&utm_campaign=44981&af=739_44981&aff_platform=api-new-link-generate&utm_medium=cpa&sub1=1068989&cn=2ururq6bi16k03uyd6y2hllw354pbvgy&dp=2ururq6bi16k03uyd6y2hllw354pbvgy&aff_fcid=0ca158e4d6084f35acb0f1ada599675d-1676551609365-08780-_DEkTcIR&cv=3&aff_fsk=_DEkTcIR&sk=_DEkTcIR&aff_trace_key=0ca158e4d6084f35acb0f1ada599675d-1676551609365-08780-_DEkTcIR&terminal_id=ccde0aed126d4739a41595ddbbb4047c&utm_content=1068989&utm_source=admitad&gatewayAdapt=glo2rus&sku_id=12000024771914456
+    # https://aliexpress.ru/item/2044891395.html?sub=44981&utm_
+    # campaign=44981&af=739_44981&aff_platform=api-new-link
+    # -generate&utm_medium=cpa&sub1=1068989&cn=2ururq6bi16k03
+    # uyd6y2hllw354pbvgy&dp=2ururq6bi16k03uyd6y2hllw354pbvgy&aff
+    # _fcid=0ca158e4d6084f35acb0f1ada599675d-1676551609365-08780-
+    # _DEkTcIR&cv=3&aff_fsk=_DEkTcIR&sk=_DEkTcIR&aff_trace_key=
+    # 0ca158e4d6084f35acb0f1ada599675d-1676551609365-08780-_
+    # DEkTcIR&terminal_id=ccde0aed126d4739a41595ddbbb4047c&utm
+    # _content=1068989&utm_source=admitad&gatewayAdapt
+    # =glo2rus&sku_id=12000024771914456
     url: str = input("url: ")
-    page: Response = rq.get(url)
+    page: Response = rq.get(url, timeout=10)
     return BeautifulSoup(page.text, 'lxml')
 
 
 def find_elements(soup: BeautifulSoup) -> None:
     """The function for find elements and add to data"""
-    global data
 
     try:
         title: str = soup.find('h1', class_=TITLE_CLASS).text
@@ -45,6 +57,7 @@ def find_elements(soup: BeautifulSoup) -> None:
 
 
 def export_exel(data_s: pd.DataFrame) -> None:
+    """The function for save result"""
     data_s.to_excel("data/ali_data_product.xlsx")
 
 
@@ -54,4 +67,3 @@ if __name__ == "__main__":
 
     if input("save (y, n)? ") == 'y':
         export_exel(data)
-

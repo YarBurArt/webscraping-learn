@@ -1,17 +1,28 @@
-# import requests as rq
+# -*- coding: utf-8 -*-
+""" Made by YarBurArt
+save web library sketch
+Special code style: Chinese pasta
+"""
+import asyncio
+import json
+import aiohttp
+from aiohttp.http_exceptions import InvalidURLError
+
 from bs4 import BeautifulSoup
 from deep_translator import GoogleTranslator
-import json
 
 from progress.bar import Bar
 
-import aiohttp
-import asyncio
 
-bar = Bar("Check and downloading", max=1000000)
+progress_bar = Bar("Check and downloading", max=1000000)
 
 
-async def stolen_library():
+async def stolen_library() -> None:
+    """
+    The function runs through all possible library pages
+    and downloads existing ones
+    :return: None
+    """
     data = []
     async with aiohttp.ClientSession() as session:
         for work in range(1, 1000):
@@ -21,9 +32,9 @@ async def stolen_library():
                 try:
                     async with session.get(url) as response:
                         if response.status != 200:
-                            bar.next()
+                            progress_bar.next()
                             break
-                        bar.next()
+                        progress_bar.next()
 
                         html = await response.text()
                         soup = BeautifulSoup(html, 'lxml')
@@ -34,7 +45,8 @@ async def stolen_library():
 
                         translator = GoogleTranslator(source='auto', target='en')
 
-                        strip_title = await soup.title.text.replace('. Текст произведения', '').replace(' ', '').lower()
+                        strip_title = await soup.title.text.replace('. Текст произведения', '')\
+                            .replace(' ', '').lower()
                         trans_title = translator.translate(strip_title)
                         print(trans_title)
 
@@ -44,16 +56,17 @@ async def stolen_library():
                             "link": url,
                             "body": outtext,
                         })
-                except Exception as e:
-                    bar.next()
+                except InvalidURLError as e_invalid:
+                    print(e_invalid, "go next")
+                    progress_bar.next()
                     break
 
-            with open(f"data/test_pg_book.json", 'a',
+            with open("data/test_pg_book.json", 'a',
                       encoding="utf-8") as file:
                 json.dump(data, file,
                           ensure_ascii=False)
 
-    bar.finish()
+    progress_bar.finish()
 
 
 if __name__ == '__main__':
