@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """ Made by YarBurArt
-parsing avito sketch
+parsing avito sketch 0.2
 """
 import json
 from datetime import datetime
