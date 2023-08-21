@@ -28,7 +28,7 @@ def write(s, x):
         n = s[i]
         typewrite(n, interval=0.10)
         # print(i)
-        i = i + 1
+        i += 1
 
 
 time.sleep(10)
