@@ -60,7 +60,7 @@ class SearchFeedback(TestCase):
         for product in products:
             u_pr = product.find_element(By.TAG_NAME, "a")
             url = u_pr.get_attribute("href")
-            # print(url)
+            print(url)
 
     def tearDown(self):
         pass

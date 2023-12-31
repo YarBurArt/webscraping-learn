@@ -1,10 +1,570 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+
+ <html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><title>
+	USGA | Golf Club Informational Database
+</title><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="Description" content=" " /><meta name="keywords" content=" " /><link type="text/css" href="https://www.usga.org/Code/css2/usga_skinned_apps_styles.css" rel="stylesheet" /><link type="text/css" href="https://www.usga.org/Code/css2/usga_skinned_apps_media_screens.css" rel="stylesheet" /><link type="text/css" href="https://www.usga.org/Code/css/national_font.css" rel="stylesheet" />
+    <script src="//assets.adobedtm.com/be647daa0868f11f8113c7fb433bafc636024ba2/satelliteLib-83349796437417787abc21e3f4ac547f4e6c55e0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript">
+        var digitalData = (typeof digitalData !== 'undefined') ? digitalData : {};
+        //Page level analytics.
+        digitalData.page = {
+            "pageInfo": {
+                "pageName": "index.asp "
+            },
+            "category": {
+                "primaryCategory": "equipment",
+            }
+        }
+        _satellite.track("page-view");
+</script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://www.usga.org/content/usga/home-page.jsonp.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			USGA.addNavigation();
+		});
+	</script>
+
+
 </head>
 <body>
-$END$
+      <div id="contentWrapper">
+        <div id="contentArea">
+            <h1 class="pageTitle">
+                Informational Club Database</h1>
+            <div class="contentBlock">
+<form method="post" action="./Search.aspx" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNTg5NDQzNTQwD2QWAgIBD2QWAgIHD2QWAmYPZBYGAgMPEA8WBh4NRGF0YVRleHRGaWVsZAUEZGVzYx4ORGF0YVZhbHVlRmllbGQFCGNsdWJ0eXBlHgtfIURhdGFCb3VuZGdkEBUFElNlbGVjdCBhIENsdWIgVHlwZQ1XZWRnZSAoNzIxNCkgDkh5YnJpZCAoMjY3NykgDElyb24gKDUzNDUpIBRGYWlyd2F5IFdvb2QgKDMxMjgpIBUFA0FsbAVXZWRnZQZIeWJyaWQESXJvbgxGYWlyd2F5IFdvb2QUKwMFZ2dnZ2cWAQIBZAIFDxAPFgYfAAUEZGVzYx8BBQRtYW5mHwJnZBAVmwIVU2VsZWN0IGEgTWFudWZhY3R1cmVyFVNlbGVjdCBBIE1hbnVmYWN0dXJlcgYgICg4KSASMTg3OSBDby4gTHRkLiAoMikgF0EgRGVzaWduIEdvbGYgSW5jICgyMSkgF0FjdXNobmV0IENvbXBhbnkgKDk1NykgEEFkYW1zIEdvbGYgKDIwKSATQWR2YW5jZSBDbyBMdGQgKDYpIEdBZHZhbmNlIFByb2R1Y3RzIEdtYkggKHByZXZpb3VzbHkgY2FsbGVkIEstTWF0IEdtYkggR29sZiBEZXZpc2lvbikgKDQpIBtBa2lyYSBQcm9kdWN0cyBDbyBMdGQgKDI2KSAPQWxpZW4gR29sZiAoNCkgEUFscGVuIENvIEx0ZCAoMSkgFkFNIEdvbGYgRXF1aXBtZW50ICgxKSALQVJHT0xGICgzKSAZQXJ0cyAmIEdvbGYgV29ya3Nob3AgKDYpIBdBc2FoaSBHb2xmIENvIEx0ZCAoMTUpIBdBdmFudGkgQ29ycG9yYXRpb24gKDEpIBZBeGlzIEdvbGYgQ28gTHRkICgyOCkgGEIuSS5HLiBTdGVhbGV4IEdtYkggKDcpIBZCZW4gSG9nYW4gQ29tcGFueSAoMykgIkJlbiBIb2dhbiBHb2xmIEVxdWlwbWVudCBDby4gKDUwKSARQmVucm9zcyBHb2xmICg4KSAVQmVzdCBUZWNoIENvIEx0ZCAoNikgFUJldHRpbmFyZGkgR29sZiAoMTYpIBdCaWcgQXBwbGUgR29sZiBJbmMgKDEpICJCaWcgRmlzaCBHb2xmIEhvbGRpbmdzIFBHIEx0ZCAoMykgKEJpZyBGaXNoIEdvbGYgSW50ZXJuYXRpb25hbCBQdGUgTHRkICgzKSASQmlnIFNob3QgR29sZiAoMSkgD0JpZ21lIEdvbGYgKDMpIBZCaXJ0aCBDb3Jwb3JhdGlvbiAoMikgHUJsYWRlIFJ1bm5lciBHb2xmLCBJbmMuICgxMCkgFkJsdWUgTG90dXMgQ28gTHRkICgxKSASQm9jY2llcmkgR29sZiAoOCkgEkJvbWJUZWNoIEdvbGYgKDQpICBCcmlkZ2VzdG9uZSBTcG9ydHMgQ28gTHRkICgxMjUpICBCcm9udHkgR29sZiBDb21wYW55IExpbWl0ZWQgKDEpIBtCcm9zbmFuIEdvbGYgQXVzdHJhbGlhICg0KSARQnVycm93cyBHb2xmICgzKSAOQ2FsZXkgTHRkICgzKSAUQ2FsbGF3YXkgR29sZiAoNjcyKSAbQ2FsbGF3YXkgR29sZiBDb21wYW55ICg1MykgEkNhcm5haGFuIEdvbGYgKDYpIBpDZW50cmFsIEtvc2hvIENvIEx0ZCAoMTIpIBRDaGFtcGlvbiBTcG9ydHMgKDIpIBdDaGFybGVzIENsYWlyZSBMTFAgKDgpIBNDaGl5b2RhIENvIEx0ZCAoMykgEkNodWpvIENvIEx0ZCAoMTApIDBDaXJjbGUgQ3JlZWsgUC9MLCBUcmFkaW5nIGFzIFByb3NpbW1vbiBHb2xmICg0KSAVQ2xldmVsYW5kIEdvbGYgKDc1NykgFkNsaW1iIEZyZWUgQ28gTHRkICg2KSAWQ2x1YiBGYWN0b3J5IEdtYkggKDcpIBFDb2F0ZXMgR29sZiAoMTApIBVDb2JyYSBHb2xmLCBJbmMuICgyKSAWQ29icmEgUFVNQSBHb2xmICgxMzEpIB9Db21wb3NpdGUgVGVjaG5vIENvLiwgTHRkLiAoMSkgF0Nvc21vIEdvbGYgQ29tcGFueSAoMSkgHENyb3NzY3V0IFdlZGdlIENvLiwgTExDICgyKSAQQ3V0dGVyIEdvbGYgKDMpIBlEYWlzaGluIEdvbGYgQ29tcGFueSAoMSkgFkRhdmlkIENvcnBvcmF0aW9uICgxKSASRGVjYXRobG9uIFNFICgxNCkgEkRlTGFDcnV6IEdvbGYgKDEpIBpEZWx0YSBJbmR1c3RyeSBDbyBMdGQgKDMpICREaWFtb25kIEdvbGYgSW50ZXJuYXRpb25hbCBMdGQgKDExKSAbRGljaydzIFNwb3J0aW5nIEdvb2RzICg1MSkgE0RpcmVjdCBHb2xmIFVrICgzKSAXRG9jdG9yIEdvbGYgQ28gTHRkICgyKSAQRG9ubmF5IEdvbGYgKDEpIA5EVEIgR29sZiAoMTIpIA9FZGVsIEdvbGYgKDQ2KSAYRWRpc29uIEdvbGYgQ29tcGFueSAoOSkgGEVpZG9sb24gQnJhbmRzLCBMTEMgKDgpIBxFaWdlciBFbnRlcnByaXNlIENvIEx0ZCAoNikgFkVvbiBTcG9ydHMgQ28gTHRkICg0KSAWRXBvbiBHb2xmIENvIEx0ZCAoMjIpIBxFcG9uIEdvbGYgTm9ydGggQW1lcmljYSAoNykgDkV2ZW4gR29sZiAoNykgDEYyIEdvbGYgKDkpICJGYWNlIEZvcndhcmQgVGVjaG5vbG9naWVzIExMQyAoMikgEUZhaXJ3YXkgQ2x1YiAoOCkgF0ZlZWwgR29sZiBDb21wYW55ICgyNykgGkZpcnN0IENvbXBhbnkgTGltaXRlZCAoMSkgGUZpdHRpbmcgS29yZWEgQ28gTHRkICgzKSAURmx5bm4gR29sZiBMTEMgKDIxKSAvRm9yZ2luZyBUZWNobm9sb2dpZXMgKEZvcm1lcmx5IEdpbWFyIEdvbGYpICg2KSAXRm9ybWVybHkgSkFNQSBHb2xmICg0KSAoRm9zaGFuIFlpYmFuZyBHb2xmIEdvb2RzIENvIExpbWl0ZWQgKDQpIBJGb3VuZGVycyBDbHViICgyKSAWRm91cnRlZW4gQ28gTHRkICgxMTkpIBRGcmVpaGVpdCBDbyBMdGQgKDgpIB9GdWppIEtpaGFuIENvbXBhbnkgTGltaXRlZCAoMSkgIUZ1amlraSBDb3Jwb3JhdGlvbiBDby4sIEx0ZCAoMTApIBxGdWppbW90byBHaWtvaCBDby4sTHRkICg0NykgEUcgRm9yY2UgR29sZiAoMSkgE0cgUCBTIENvLiBMdGQuICgxKSANR2FiZUdvbGYgKDcpIBFHYXJ5IFdvb2xnYXIgKDEpIB9HZW9yZ2UgU3Bpcml0cyBDb3Jwb3JhdGlvbiAoNikgGUdlb3JnZSBTcGlyaXRzIEdvbGYgKDEwKSAkR2VvdGVjaCBHb2xmIENvbXBvbmVudHMgQ28gTHRkICgzNikgEkdsb2JlcmlkZSBJbmMgKDcpIBxHb2xmIERlc2lnbiBJTlRMIENvIEx0ZCAoMikgE0dvbGYgS25hY2sgTExDICgzKSAYR29sZiBLb3JlYSBDby4gTHRkLiAoNykgFkdvbGYgTGFiIEcgU2VsZWN0ICgyKSAZR29sZiBQYXJ0bmVyIENvIEx0ZCAoMjkpIBFHb2xmIFRhaWxvciAoMTUpIBNHb2xmLURvIENvIEx0ZCAoMykgI0dvbGZOQ28gQ28gTHRkIChFMkdvbGYgQ28gTHRkKSAoMykgGEdvbGZzbWFydChNKVNETiBCSEQgKDMpICNHb2xmc21pdGggSW50ZXJuYXRpb25hbCwgSW5jLiAoMjUpIBxHcmFjaWV1eCBBcnQgRGVzaWduIEluYyAoMikgF0dyYW5kIFByaXggQ28gTHRkICg0MCkgE0dyZWF0b24gQ28gTHRkICgzKSAVR3JpbmQgR29sZiBDbHVicyAoMSkgIEdyaW5kd29ya3MgQ29tcGFueSBMaW1pdGVkICgzOCkgEkd1YXJkaWFuIEdvbGYgKDEpIBJHViBHb2xmIEtvcmVhICg2KSAZR1YgR29sZiBLb3JlYSBDbyBMdGQgKDEpICtIYWt1c2EgR29sZiBFdXJvcGUgKEdvbGYgQ2x1YiBEb2N0ZXVyKSAoMykgEEhhbmEgQ28gTHRkICg4KSAWSGFyYWRhICYgQ28uIEx0ZC4gKDEpIBNIYXJha2VuIENvIEx0ZCAoNCkgF0hhcmltYSBHb2xmIENvIEx0ZCAoMSkgEUhheXdvb2QgR29sZiAoNCkgGkhlbnJ5LUdyaWZmaXR0cywgSW5jLiAoMykgEUhpcmVrbyBHb2xmICgxMikgF0hpcm90YSBHb2xmIENvIEx0ZCAoOSkgF0hvbm1hIEdvbGYgQ28gTHRkICg3OCkgIEhvbm8gR29sZiBFbnRlcnByaXNlIENvIEx0ZCAoMikgG0hvbnNoaW4gU3BvcnRzIFB0ZSBMdGQgKDEpIBJIb3BraW5zIEdvbGYgKDE2KSAOaUdlbiBHb2xmICgzKSAPSWthc3UgR29sZiAoNCkgD0luZGkgR29sZiAoNDIpIA9Jb21pYyBJbmMgKDEwKSAQSXJhY29uIEdtYkggKDMpIBRKIEUgTmV0ICBDbyBMdGQgKDQpIBJKIEdvbGYgQ28gTHRkICgyKSAXSi4gR3JlZWQgQ28uLCBMdGQuICg1KSAhSmFwYW4gR29sZiBFcXVpcG1lbnQgQ28gTHRkICgxNCkgE0phcGFuYSBDbyBMdGQgKDQxKSAiSmFwYW5hIENvIEx0ZCAoR29sZiBQbGFubmVyKSAoMjYpIBtKYXNvbiBGaXR0aW5nIFNvbHV0aW9uICg3KSAUSmFzb24gR29sZiBDb3JwICgyKSA2Sm9obiBMZXR0ZXJzIChGb3JtZXJseSBKb2huIExldHRlcnMgR29sZiBMaW1pdGVkKSAoOSkgEUpvcHJvIENvIEx0ZCAoMSkgJUpvcmRhbiBHb2xmIENvbG9nbmUgR21iSCAmIENvIEtnICgzKSANSlAgR29sZiAoMTIpIA5KdWNpZSBJbmMgKDkpIBRKdXN0aWNrIENvIEx0ZCAoMjUpIB1LLU1hdCBHbWJIIEdvbGYgRGl2aXNpb24gKDQpIB5LYW11aSBXb3JrcyBKYXBhbiBDbyBMdGQgKDIxKSAkS2FuYW1vcmkgQ28gTHRkIChHb3JpbGxhIEdvbGYpICgzNSkgFkthc2NvIENvcnBvcmF0aW9uICg0KSAUS2F5c29uIEdvbGYgTHRkICg5KSAWS2VpZ2VraWt1IENvIEx0ZCAoMTEpICprZW5pY2hpIEtvcmVhIENvIEx0ZCAoS2VuaWNoaSBTdHVkaW8pICg1KSAtS2VubW90c3UgR29sZiBFcXVpcG1lbnQgTWFudWZhY3R1cmluZyBDbyAoMykgGEtlbnRhY2sgR29sZiBDbyBMdGQgKDQpIBZLaGFuIEdvbGYgQ28gTHRkICgxMSkgCEtNSiAoMSkgGUtvZWkgR29sZiBTZWlzYWt1c2hvICg4KSAbS29sb24gSW5kdXN0cmllcywgSW5jLiAoOCkgCUtaRyAoODEpIBRMYXdzb24gTGluayBMdGQgKDEpIBRMYXpydXMgR29sZiBMTEMgKDcpIBVMb2dpY2FsIE9uZSBHb2xmICgzKSAYTG92ZXR0IEdvbGYgQ29tcGFueSAoMykgEEx5bnggQ28gTHRkICg2KSAOTHlueCBHb2xmICgyKSAXTWFjR3JlZ29yIEdvbGYgQ28uICg4KSAeTWFjZ3JlZ29yIEdvbGYgSmFwYW4gTHRkICgyMCkgMk1hZGUgVG8gTWVhc3VyZSBHb2xmIEdtYkggJiBDby4gS0cgKE1UTSBHb2xmKSAoNCkgE01hcmV0ZWMgQ28gTHRkICg4KSAVTWFydW1hbiAmIENvIEx0ZCAoOSkgEk1hc2RhZ29sZiBJbmMgKDIpIBRNYXN0ZXJzIENvIEx0ZCAoMTApIBFNQ00gR29sZiBJbmMgKDgpIBNNZWRpY3VzL0tpY2sgWCAoMykgE01ldmFlcnUgQ28gTHRkICg0KSAWTUZTIEtvcmVhIENvIEx0ZCAoMjEpIBtNR29sZiBJbnRlcm5hdGlvbmFsIEFTICgxKSAYTWlsbGVubml1bSBHb2xmIEFTICgxMykgGE1pbGxlbm5pdW0gR29sZiBJbmMgKDMpIBhNaXVyYSBHaWtlbiBDbyBMdGQgKDM2KSAUTWl1cmEgR29sZiBJbmMgKDYxKSATTWl6dW5vIENvcnAuICgzMjMpIBZNSyBUcmFkaW5nIENvIEx0ZCAoMikgEk1vbWVudHVzIEdvbGYgKDEpIBJNdXppaWsgQ28gTHRkICgxKSATTmFrYXNoaW1hIEdvbGYgKDkpIBROZXcgTGV2ZWwgR29sZiAoNDQpIBxOaWNrZW50IEdvbGYgRXF1aXBtZW50ICgxMCkgJk5pY2tsYXVzIEdvbGYgRXF1aXBtZW50IENvLiwgTC5DLiAoNCkgEE5pa2UgR29sZiAoMjQ1KSAhTm9ibGUgR29sZiBTcG9ydHMgQ28gTGltaXRlZCAoMSkgI08tVEEgUHJlY2lzaW9uIEluZHVzdHJ5IENvIEx0ZCAoMSkgE09uZSBGb3ggQ28gTHRkICg0KSATT3h5bGFuZSBJbmVzaXMgKDIpIBRQJlAgSW1wb3J0cyBMTEMgKDYpIBFQRyBUcmFkaW5nIEMgKDMpIBBQaWdlb24gR29sZiAoNikgN1BpbmVtZWFkb3cgR29sZiBQcm9kdWN0cywgSW5jLiAoZGJhIENhcm5haGFuIEdvbGYpICg2KSARUElORywgSW5jLiAoNDcwKSARUGlyYW5oYSBHb2xmICg0KSARUGlyZXR0aSBHb2xmICg5KSAfUGx1cyAyIEludGVybmF0aW9uYWwsIEluYy4gKDUpIBlQb2ludCBuIFB1dHQgUFRZIEx0ZCAoMSkgF1BvdHRlciBFbnRlcnByaXNlcyAoMSkgE1Bvd2VyQmlsdCBHb2xmICgzKSAUUFIgRGlvbm5lLCBJbmMuICgzKSASUHJlc3RpZ2UgR29sZiAoMSkgG1ByZXN0aWdlIEdvbGYgKFVLKSBMdGQgKDEpICpQUkdSIENvIEx0ZCAoWW9rb2hhbWEgUnViYmVyIENvIEx0ZCkgKDg0KSAdUHJvLVRyYWN0IEdvbGYgRXF1aXBtZW50ICgxKSAiUHJvZmVzc2lvbmFsIEdvbGYgRXVyb3BlIEx0ZCAoMTUpIA9QdW5jaCBHb2xmICg0KSAZUHVyZSBTcGluIEdvbGYsIEluYy4gKDMpIB5QWEctUGFyc29ucyBYdHJlbWUgR29sZiAoMjI2KSARUHlyYW1pZCBHb2xmICgxKSAeUXZpcyBJbnRlcm5hdGlvbmFsIENvIEx0ZCAoMikgE1JhbSBHb2xmIENvcnAuICgxKSAVUmVuZWdhciBHb2xmIExMQyAoNikgDlJpZmUgR29sZiAoNikgE1JvaXIgSmFwYW4gQ28gKDUzKSAWUm95YWwgQ29sbGVjdGlvbiAoMTEpIBpSb3lhbCBDb2xsZWN0aW9uIEluYyAoMzcpIBZSeW9tYSBHb2xmIENvIEx0ZCAoMSkgDlNhbmRidWxseSAoMSkgFlNjb3R0IEdvbGYgVVNBIExDICgzKSARU2NyYXRjaCBHb2xmICgxKSAdU2Vpa28gU3BvcnRzIExpZmUgQ28gTHRkICg2KSAXU2ltb24gR29sZiBDb21wYW55ICgxKSATU00gR2xvYmFsLCBMTEMgKDMpIBVTbWl0aHdvcmtzIEdvbGYgKDIzKSAQU29saW5jbyBMTEMgKDEpIBBTb2x1cyBHb2xmICgxNSkgJ1NvdXRoZXJuIENhbGlmb3JuaWEgRGVzaWduIENvbXBhbnkgKDYpIB5TcGFsZGluZyBTcG9ydHMgV29ybGR3aWRlICgyKSAcU3BlY2lhbGlzdCBHb2xmIExpbWl0ZWQgKDIpIAxTU1AgTHRkICg4KSASU3ViIDcwIEdvbGYgKDEwOCkgJFN1bWl0b21vIFJ1YmJlciBJbmR1c3RyaWVzIEx0ZCAoOTMpICVTdW1pdG9tbyBSdWJiZXIgSW5kdXN0cmllcyBMdGQuICgzOSkgEVN3aW5nIFB1enpsZSAoMikgGFRha29tbyBHb2xmIENvbXBhbnkgKDQpIB5UYXlsb3JNYWRlIEdvbGYgQ29tcGFueSAoMTg5KSASVGVlT2xpdmUgTExQICgxMikgFVRoZSBDbHViIE51dCBMTEMgKDYpIBNUaGUgRHJlYW0gR29sZiAoNSkgE1RoZSBHb2xmd29ya3MgKDM2KSAXVGhyZWUgTHVjayBDbyBMdGQgKDEyKSAWVG9rYWkgR29sZiBDbyBMdGQgKDUpIB9Ub20gV2lzaG9uIEdvbGYgVGVjaG5vbG9neSAoNikgHlRvbW15IEFybW91ciBHb2xmIExpbWl0ZWQgKDEpIBNUb3AgRmxpdGUgR29sZiAoMykgG1RvcC1GbGl0ZSBHb2xmIENvbXBhbnkgKDIpIBlUb3VyIEVkZ2UgR29sZiBNZmcuICgzNykgHFRvdXJTaG90IEdvbGYgQ28uLCBJbmMuICgxKSAeVHJhZGl0aW9uYWwgU3BvcnQgTGltaXRlZCAoNSkgG1RyaWFsIENvbXBhbnkgTGltaXRlZCAoMTIpIBhUc3VydXlhIEdvbGYgQ28gTHRkICgxKSAUVFRPIENvcnBvcmF0aW9uICgxKSAQVHVyZiBDbyBMdGQgKDQpIBBUeGVtYSwgSW5jLiAoMykgFFUuUy4gS2lkcyBHb2xmICgxNSkgGVVuaXZlcnNhbCBTcG9ydHMgTHRkICgxKSAWVmFsdWUgUGx1cyBDbyBMdGQgKDUpIBlXYWtvIEVudGVycHJpc2UgTHRkICgxOCkgGVdhcnJpb3IgQ3VzdG9tIEdvbGYgKDEzKSANV2VkZ2UgRlggKDUpIBlXaWxsaWFtcyBSYWNpbmcgR29sZiAoMSkgG1dpbHNvbiBTcG9ydGluZyBHb29kcyAoNzEpIBRXaW5iaXJkIENvIEx0ZCAoMTApIA9Xb3JrJ3MgSW5jICgyKSARV29ya3MgQ28gTHRkICg5KSAeV29ybGR3aWRlIEdvbGYgQnJhbmRzIEx0ZCAoNikgLVhpYW1lbiBKYXNkZSBTcG9ydHMgRXF1aXBtZW50IENvLiwgTHRkLiAoMjcpIBhZYW1haGEgQ29ycG9yYXRpb24gKDQ3KSASWW9uZXggQ28gTHRkICg3OSkgG1lvc2hpbXVyYSBHb2xmIENvIEx0ZCAoMTYpIBtab2RpYSBDb21wYW55IExpbWl0ZWQgKDIyKSAVmwIDQWxsA0FsbAEgDTE4NzkgQ28uIEx0ZC4RQSBEZXNpZ24gR29sZiBJbmMQQWN1c2huZXQgQ29tcGFueQpBZGFtcyBHb2xmDkFkdmFuY2UgQ28gTHRkQkFkdmFuY2UgUHJvZHVjdHMgR21iSCAocHJldmlvdXNseSBjYWxsZWQgSy1NYXQgR21iSCBHb2xmIERldmlzaW9uKRVBa2lyYSBQcm9kdWN0cyBDbyBMdGQKQWxpZW4gR29sZgxBbHBlbiBDbyBMdGQRQU0gR29sZiBFcXVpcG1lbnQGQVJHT0xGFEFydHMgJiBHb2xmIFdvcmtzaG9wEUFzYWhpIEdvbGYgQ28gTHRkEkF2YW50aSBDb3Jwb3JhdGlvbhBBeGlzIEdvbGYgQ28gTHRkE0IuSS5HLiBTdGVhbGV4IEdtYkgRQmVuIEhvZ2FuIENvbXBhbnkcQmVuIEhvZ2FuIEdvbGYgRXF1aXBtZW50IENvLgxCZW5yb3NzIEdvbGYQQmVzdCBUZWNoIENvIEx0ZA9CZXR0aW5hcmRpIEdvbGYSQmlnIEFwcGxlIEdvbGYgSW5jHUJpZyBGaXNoIEdvbGYgSG9sZGluZ3MgUEcgTHRkI0JpZyBGaXNoIEdvbGYgSW50ZXJuYXRpb25hbCBQdGUgTHRkDUJpZyBTaG90IEdvbGYKQmlnbWUgR29sZhFCaXJ0aCBDb3Jwb3JhdGlvbhdCbGFkZSBSdW5uZXIgR29sZiwgSW5jLhFCbHVlIExvdHVzIENvIEx0ZA1Cb2NjaWVyaSBHb2xmDUJvbWJUZWNoIEdvbGYZQnJpZGdlc3RvbmUgU3BvcnRzIENvIEx0ZBtCcm9udHkgR29sZiBDb21wYW55IExpbWl0ZWQWQnJvc25hbiBHb2xmIEF1c3RyYWxpYQxCdXJyb3dzIEdvbGYJQ2FsZXkgTHRkDUNhbGxhd2F5IEdvbGYVQ2FsbGF3YXkgR29sZiBDb21wYW55DUNhcm5haGFuIEdvbGYUQ2VudHJhbCBLb3NobyBDbyBMdGQPQ2hhbXBpb24gU3BvcnRzEkNoYXJsZXMgQ2xhaXJlIExMUA5DaGl5b2RhIENvIEx0ZAxDaHVqbyBDbyBMdGQrQ2lyY2xlIENyZWVrIFAvTCwgVHJhZGluZyBhcyBQcm9zaW1tb24gR29sZg5DbGV2ZWxhbmQgR29sZhFDbGltYiBGcmVlIENvIEx0ZBFDbHViIEZhY3RvcnkgR21iSAtDb2F0ZXMgR29sZhBDb2JyYSBHb2xmLCBJbmMuD0NvYnJhIFBVTUEgR29sZhpDb21wb3NpdGUgVGVjaG5vIENvLiwgTHRkLhJDb3NtbyBHb2xmIENvbXBhbnkXQ3Jvc3NjdXQgV2VkZ2UgQ28uLCBMTEMLQ3V0dGVyIEdvbGYURGFpc2hpbiBHb2xmIENvbXBhbnkRRGF2aWQgQ29ycG9yYXRpb24MRGVjYXRobG9uIFNFDURlTGFDcnV6IEdvbGYVRGVsdGEgSW5kdXN0cnkgQ28gTHRkHkRpYW1vbmQgR29sZiBJbnRlcm5hdGlvbmFsIEx0ZBVEaWNrJ3MgU3BvcnRpbmcgR29vZHMORGlyZWN0IEdvbGYgVWsSRG9jdG9yIEdvbGYgQ28gTHRkC0Rvbm5heSBHb2xmCERUQiBHb2xmCUVkZWwgR29sZhNFZGlzb24gR29sZiBDb21wYW55E0VpZG9sb24gQnJhbmRzLCBMTEMXRWlnZXIgRW50ZXJwcmlzZSBDbyBMdGQRRW9uIFNwb3J0cyBDbyBMdGQQRXBvbiBHb2xmIENvIEx0ZBdFcG9uIEdvbGYgTm9ydGggQW1lcmljYQlFdmVuIEdvbGYHRjIgR29sZh1GYWNlIEZvcndhcmQgVGVjaG5vbG9naWVzIExMQwxGYWlyd2F5IENsdWIRRmVlbCBHb2xmIENvbXBhbnkVRmlyc3QgQ29tcGFueSBMaW1pdGVkFEZpdHRpbmcgS29yZWEgQ28gTHRkDkZseW5uIEdvbGYgTExDKkZvcmdpbmcgVGVjaG5vbG9naWVzIChGb3JtZXJseSBHaW1hciBHb2xmKRJGb3JtZXJseSBKQU1BIEdvbGYjRm9zaGFuIFlpYmFuZyBHb2xmIEdvb2RzIENvIExpbWl0ZWQNRm91bmRlcnMgQ2x1Yg9Gb3VydGVlbiBDbyBMdGQPRnJlaWhlaXQgQ28gTHRkGkZ1amkgS2loYW4gQ29tcGFueSBMaW1pdGVkG0Z1amlraSBDb3Jwb3JhdGlvbiBDby4sIEx0ZBZGdWppbW90byBHaWtvaCBDby4sTHRkDEcgRm9yY2UgR29sZg5HIFAgUyBDby4gTHRkLghHYWJlR29sZgxHYXJ5IFdvb2xnYXIaR2VvcmdlIFNwaXJpdHMgQ29ycG9yYXRpb24TR2VvcmdlIFNwaXJpdHMgR29sZh5HZW90ZWNoIEdvbGYgQ29tcG9uZW50cyBDbyBMdGQNR2xvYmVyaWRlIEluYxdHb2xmIERlc2lnbiBJTlRMIENvIEx0ZA5Hb2xmIEtuYWNrIExMQxNHb2xmIEtvcmVhIENvLiBMdGQuEUdvbGYgTGFiIEcgU2VsZWN0E0dvbGYgUGFydG5lciBDbyBMdGQLR29sZiBUYWlsb3IOR29sZi1EbyBDbyBMdGQeR29sZk5DbyBDbyBMdGQgKEUyR29sZiBDbyBMdGQpE0dvbGZzbWFydChNKVNETiBCSEQdR29sZnNtaXRoIEludGVybmF0aW9uYWwsIEluYy4XR3JhY2lldXggQXJ0IERlc2lnbiBJbmMRR3JhbmQgUHJpeCBDbyBMdGQOR3JlYXRvbiBDbyBMdGQQR3JpbmQgR29sZiBDbHVicxpHcmluZHdvcmtzIENvbXBhbnkgTGltaXRlZA1HdWFyZGlhbiBHb2xmDUdWIEdvbGYgS29yZWEUR1YgR29sZiBLb3JlYSBDbyBMdGQmSGFrdXNhIEdvbGYgRXVyb3BlIChHb2xmIENsdWIgRG9jdGV1cikLSGFuYSBDbyBMdGQRSGFyYWRhICYgQ28uIEx0ZC4OSGFyYWtlbiBDbyBMdGQSSGFyaW1hIEdvbGYgQ28gTHRkDEhheXdvb2QgR29sZhVIZW5yeS1HcmlmZml0dHMsIEluYy4LSGlyZWtvIEdvbGYSSGlyb3RhIEdvbGYgQ28gTHRkEUhvbm1hIEdvbGYgQ28gTHRkG0hvbm8gR29sZiBFbnRlcnByaXNlIENvIEx0ZBZIb25zaGluIFNwb3J0cyBQdGUgTHRkDEhvcGtpbnMgR29sZglpR2VuIEdvbGYKSWthc3UgR29sZglJbmRpIEdvbGYJSW9taWMgSW5jC0lyYWNvbiBHbWJID0ogRSBOZXQgIENvIEx0ZA1KIEdvbGYgQ28gTHRkEkouIEdyZWVkIENvLiwgTHRkLhtKYXBhbiBHb2xmIEVxdWlwbWVudCBDbyBMdGQNSmFwYW5hIENvIEx0ZBxKYXBhbmEgQ28gTHRkIChHb2xmIFBsYW5uZXIpFkphc29uIEZpdHRpbmcgU29sdXRpb24PSmFzb24gR29sZiBDb3JwMUpvaG4gTGV0dGVycyAoRm9ybWVybHkgSm9obiBMZXR0ZXJzIEdvbGYgTGltaXRlZCkMSm9wcm8gQ28gTHRkIEpvcmRhbiBHb2xmIENvbG9nbmUgR21iSCAmIENvIEtnB0pQIEdvbGYJSnVjaWUgSW5jDkp1c3RpY2sgQ28gTHRkGEstTWF0IEdtYkggR29sZiBEaXZpc2lvbhhLYW11aSBXb3JrcyBKYXBhbiBDbyBMdGQeS2FuYW1vcmkgQ28gTHRkIChHb3JpbGxhIEdvbGYpEUthc2NvIENvcnBvcmF0aW9uD0theXNvbiBHb2xmIEx0ZBBLZWlnZWtpa3UgQ28gTHRkJWtlbmljaGkgS29yZWEgQ28gTHRkIChLZW5pY2hpIFN0dWRpbykoS2VubW90c3UgR29sZiBFcXVpcG1lbnQgTWFudWZhY3R1cmluZyBDbxNLZW50YWNrIEdvbGYgQ28gTHRkEEtoYW4gR29sZiBDbyBMdGQDS01KFEtvZWkgR29sZiBTZWlzYWt1c2hvFktvbG9uIEluZHVzdHJpZXMsIEluYy4DS1pHD0xhd3NvbiBMaW5rIEx0ZA9MYXpydXMgR29sZiBMTEMQTG9naWNhbCBPbmUgR29sZhNMb3ZldHQgR29sZiBDb21wYW55C0x5bnggQ28gTHRkCUx5bnggR29sZhJNYWNHcmVnb3IgR29sZiBDby4YTWFjZ3JlZ29yIEdvbGYgSmFwYW4gTHRkLU1hZGUgVG8gTWVhc3VyZSBHb2xmIEdtYkggJiBDby4gS0cgKE1UTSBHb2xmKQ5NYXJldGVjIENvIEx0ZBBNYXJ1bWFuICYgQ28gTHRkDU1hc2RhZ29sZiBJbmMOTWFzdGVycyBDbyBMdGQMTUNNIEdvbGYgSW5jDk1lZGljdXMvS2ljayBYDk1ldmFlcnUgQ28gTHRkEE1GUyBLb3JlYSBDbyBMdGQWTUdvbGYgSW50ZXJuYXRpb25hbCBBUxJNaWxsZW5uaXVtIEdvbGYgQVMTTWlsbGVubml1bSBHb2xmIEluYxJNaXVyYSBHaWtlbiBDbyBMdGQOTWl1cmEgR29sZiBJbmMMTWl6dW5vIENvcnAuEU1LIFRyYWRpbmcgQ28gTHRkDU1vbWVudHVzIEdvbGYNTXV6aWlrIENvIEx0ZA5OYWthc2hpbWEgR29sZg5OZXcgTGV2ZWwgR29sZhZOaWNrZW50IEdvbGYgRXF1aXBtZW50IU5pY2tsYXVzIEdvbGYgRXF1aXBtZW50IENvLiwgTC5DLglOaWtlIEdvbGYcTm9ibGUgR29sZiBTcG9ydHMgQ28gTGltaXRlZB5PLVRBIFByZWNpc2lvbiBJbmR1c3RyeSBDbyBMdGQOT25lIEZveCBDbyBMdGQOT3h5bGFuZSBJbmVzaXMPUCZQIEltcG9ydHMgTExDDFBHIFRyYWRpbmcgQwtQaWdlb24gR29sZjJQaW5lbWVhZG93IEdvbGYgUHJvZHVjdHMsIEluYy4gKGRiYSBDYXJuYWhhbiBHb2xmKQpQSU5HLCBJbmMuDFBpcmFuaGEgR29sZgxQaXJldHRpIEdvbGYaUGx1cyAyIEludGVybmF0aW9uYWwsIEluYy4UUG9pbnQgbiBQdXR0IFBUWSBMdGQSUG90dGVyIEVudGVycHJpc2VzDlBvd2VyQmlsdCBHb2xmD1BSIERpb25uZSwgSW5jLg1QcmVzdGlnZSBHb2xmFlByZXN0aWdlIEdvbGYgKFVLKSBMdGQkUFJHUiBDbyBMdGQgKFlva29oYW1hIFJ1YmJlciBDbyBMdGQpGFByby1UcmFjdCBHb2xmIEVxdWlwbWVudBxQcm9mZXNzaW9uYWwgR29sZiBFdXJvcGUgTHRkClB1bmNoIEdvbGYUUHVyZSBTcGluIEdvbGYsIEluYy4XUFhHLVBhcnNvbnMgWHRyZW1lIEdvbGYMUHlyYW1pZCBHb2xmGVF2aXMgSW50ZXJuYXRpb25hbCBDbyBMdGQOUmFtIEdvbGYgQ29ycC4QUmVuZWdhciBHb2xmIExMQwlSaWZlIEdvbGYNUm9pciBKYXBhbiBDbxBSb3lhbCBDb2xsZWN0aW9uFFJveWFsIENvbGxlY3Rpb24gSW5jEVJ5b21hIEdvbGYgQ28gTHRkCVNhbmRidWxseRFTY290dCBHb2xmIFVTQSBMQwxTY3JhdGNoIEdvbGYYU2Vpa28gU3BvcnRzIExpZmUgQ28gTHRkElNpbW9uIEdvbGYgQ29tcGFueQ5TTSBHbG9iYWwsIExMQw9TbWl0aHdvcmtzIEdvbGYLU29saW5jbyBMTEMKU29sdXMgR29sZiJTb3V0aGVybiBDYWxpZm9ybmlhIERlc2lnbiBDb21wYW55GVNwYWxkaW5nIFNwb3J0cyBXb3JsZHdpZGUXU3BlY2lhbGlzdCBHb2xmIExpbWl0ZWQHU1NQIEx0ZAtTdWIgNzAgR29sZh5TdW1pdG9tbyBSdWJiZXIgSW5kdXN0cmllcyBMdGQfU3VtaXRvbW8gUnViYmVyIEluZHVzdHJpZXMgTHRkLgxTd2luZyBQdXp6bGUTVGFrb21vIEdvbGYgQ29tcGFueRdUYXlsb3JNYWRlIEdvbGYgQ29tcGFueQxUZWVPbGl2ZSBMTFAQVGhlIENsdWIgTnV0IExMQw5UaGUgRHJlYW0gR29sZg1UaGUgR29sZndvcmtzEVRocmVlIEx1Y2sgQ28gTHRkEVRva2FpIEdvbGYgQ28gTHRkGlRvbSBXaXNob24gR29sZiBUZWNobm9sb2d5GVRvbW15IEFybW91ciBHb2xmIExpbWl0ZWQOVG9wIEZsaXRlIEdvbGYWVG9wLUZsaXRlIEdvbGYgQ29tcGFueRNUb3VyIEVkZ2UgR29sZiBNZmcuF1RvdXJTaG90IEdvbGYgQ28uLCBJbmMuGVRyYWRpdGlvbmFsIFNwb3J0IExpbWl0ZWQVVHJpYWwgQ29tcGFueSBMaW1pdGVkE1RzdXJ1eWEgR29sZiBDbyBMdGQPVFRPIENvcnBvcmF0aW9uC1R1cmYgQ28gTHRkC1R4ZW1hLCBJbmMuDlUuUy4gS2lkcyBHb2xmFFVuaXZlcnNhbCBTcG9ydHMgTHRkEVZhbHVlIFBsdXMgQ28gTHRkE1dha28gRW50ZXJwcmlzZSBMdGQTV2FycmlvciBDdXN0b20gR29sZghXZWRnZSBGWBRXaWxsaWFtcyBSYWNpbmcgR29sZhVXaWxzb24gU3BvcnRpbmcgR29vZHMOV2luYmlyZCBDbyBMdGQKV29yaydzIEluYwxXb3JrcyBDbyBMdGQZV29ybGR3aWRlIEdvbGYgQnJhbmRzIEx0ZCdYaWFtZW4gSmFzZGUgU3BvcnRzIEVxdWlwbWVudCBDby4sIEx0ZC4SWWFtYWhhIENvcnBvcmF0aW9uDFlvbmV4IENvIEx0ZBVZb3NoaW11cmEgR29sZiBDbyBMdGQVWm9kaWEgQ29tcGFueSBMaW1pdGVkFCsDmwJnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnFgECLmQCBw8QDxYGHwAFBGRlc2MfAQUEcHJvZB8CZ2QQFQYDQWxsA0FsbANBbGwVVG91ciBDaGFtcCBNVy0xMCAoMikgGkJXLTAyIChGaXJzdCBBcnRpY2xlKSAoNSkgIEthbXVpIEZvcmdlZCAoYmxhY2sgZmluaXNoKSAoNSkgFQYDQWxsA0FsbANBbGwQVG91ciBDaGFtcCBNVy0xMBVCVy0wMiAoRmlyc3QgQXJ0aWNsZSkbS2FtdWkgRm9yZ2VkIChibGFjayBmaW5pc2gpFCsDBmdnZ2dnZ2RkZEPlVevXiBeZQ2NqBcUE7dvvdnrWJ1uY9mvpYwZcMPRH" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/infoclubsdb/WebResource.axd?d=bWrRQ_e9BDLwFXcLdaWJmbXxBrDC60-mEyxvakwCuN1tQxeY0ybxozvo0JQyDs_R4a3laY9wOd6EonrpGqTueqZbbcVg0YLFtbnZGrmdhzs1&amp;t=637814660020000000" type="text/javascript"></script>
+
+
+<script src="/infoclubsdb/ScriptResource.axd?d=3O9TfpiE9BetCeIfZy15cEjWwpN5W-IAaaV87PadA-T7H_GXSqyb_kAUyUnukiyPattcRuc81Fb05c4_vUw7of9LM-zGj7c4IsRjwNzJc1Imv2ZbkSihlFWtmtNvrVbHxuatGsVV2lfLTzYXj_LPgUeaoK5i_Z_0ABbLC5SCQ7L1TDZYjoEJCKC7-4BQYV4i0&amp;t=49337fe8" type="text/javascript"></script>
+<script src="/infoclubsdb/ScriptResource.axd?d=MgpO4RNx6a3-yQ-WiwGOm-oLuYwQ9OLhuc6NvSfbpwhlx6p7hdy-eNXKJclexrXnb5xbAib5qmJngSBEIjLX4NcsM0-D-y8BHXOWV7Xi1nbVPIcISOkBF4PODmKRpXgnnvVuHj_1i2Ybv7azDh6qqh6c2Vd-osHhEOSJ0amXMfNIOSfIZauIfNzvMqTTsRrP0&amp;t=49337fe8" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var PageMethods = function() {
+PageMethods.initializeBase(this);
+this._timeout = 0;
+this._userContext = null;
+this._succeeded = null;
+this._failed = null;
+}
+PageMethods.prototype = {
+_get_path:function() {
+ var p = this.get_path();
+ if (p) return p;
+ else return PageMethods._staticInstance.get_path();},
+keywordSearch:function(word,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'keywordSearch',false,{word:word},succeededCallback,failedCallback,userContext); },
+Results:function(clubtype,Manf,Prod,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'Results',false,{clubtype:clubtype,Manf:Manf,Prod:Prod},succeededCallback,failedCallback,userContext); },
+GetSearchResults:function(searchParam,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSearchResults',false,{searchParam:searchParam},succeededCallback,failedCallback,userContext); },
+GetResponse:function(clubtype,sManf,sProd,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetResponse',false,{clubtype:clubtype,sManf:sManf,sProd:sProd},succeededCallback,failedCallback,userContext); }}
+PageMethods.registerClass('PageMethods',Sys.Net.WebServiceProxy);
+PageMethods._staticInstance = new PageMethods();
+PageMethods.set_path = function(value) { PageMethods._staticInstance.set_path(value); }
+PageMethods.get_path = function() { return PageMethods._staticInstance.get_path(); }
+PageMethods.set_timeout = function(value) { PageMethods._staticInstance.set_timeout(value); }
+PageMethods.get_timeout = function() { return PageMethods._staticInstance.get_timeout(); }
+PageMethods.set_defaultUserContext = function(value) { PageMethods._staticInstance.set_defaultUserContext(value); }
+PageMethods.get_defaultUserContext = function() { return PageMethods._staticInstance.get_defaultUserContext(); }
+PageMethods.set_defaultSucceededCallback = function(value) { PageMethods._staticInstance.set_defaultSucceededCallback(value); }
+PageMethods.get_defaultSucceededCallback = function() { return PageMethods._staticInstance.get_defaultSucceededCallback(); }
+PageMethods.set_defaultFailedCallback = function(value) { PageMethods._staticInstance.set_defaultFailedCallback(value); }
+PageMethods.get_defaultFailedCallback = function() { return PageMethods._staticInstance.get_defaultFailedCallback(); }
+PageMethods.set_enableJsonp = function(value) { PageMethods._staticInstance.set_enableJsonp(value); }
+PageMethods.get_enableJsonp = function() { return PageMethods._staticInstance.get_enableJsonp(); }
+PageMethods.set_jsonpCallbackParameter = function(value) { PageMethods._staticInstance.set_jsonpCallbackParameter(value); }
+PageMethods.get_jsonpCallbackParameter = function() { return PageMethods._staticInstance.get_jsonpCallbackParameter(); }
+PageMethods.set_path("Search.aspx");
+PageMethods.keywordSearch= function(word,onSuccess,onFailed,userContext) {PageMethods._staticInstance.keywordSearch(word,onSuccess,onFailed,userContext); }
+PageMethods.Results= function(clubtype,Manf,Prod,onSuccess,onFailed,userContext) {PageMethods._staticInstance.Results(clubtype,Manf,Prod,onSuccess,onFailed,userContext); }
+PageMethods.GetSearchResults= function(searchParam,onSuccess,onFailed,userContext) {PageMethods._staticInstance.GetSearchResults(searchParam,onSuccess,onFailed,userContext); }
+PageMethods.GetResponse= function(clubtype,sManf,sProd,onSuccess,onFailed,userContext) {PageMethods._staticInstance.GetResponse(clubtype,sManf,sProd,onSuccess,onFailed,userContext); }
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="F773DAF9" />
+</div>
+<div class="contentBlock">
+    <h2 style="margin-bottom:30px;">Search for Equipment by Manufacturer or Product Name </h2>
+  <div>
+
+      <input name="txtAutoComplete" type="text" id="txtAutoComplete" />
+        </div>
+     <div class="buttons">
+
+                        <input type="submit" name="btnSearch" value="SEARCH" id="btnSearch" class="formButton" />
+
+                </div>
+</div>
+     <div class="contentBlock">
+     <h2 style="margin-bottom:30px;">Search by Specific Club Type, Manufacturer, or Product Name</h2>
+    <p>
+                         <b>Note:</b> Some brands are manufactured by a parent company (i.e. Titleist is manufactured by Acushnet).  If you only know the brand name, you can enter it into the Full Text Search box above.
+                     </p>
+					 </div>
+<div>
+
+      <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('scriptManager', 'form1', ['tUpdatePanel1','UpdatePanel1'], [], [], 90, '');
+//]]>
+</script>
+
+      <div id="UpdatePanel1">
+
+      <span id="lblError"></span>
+     <ol class="singleColumn">
+                    <li>
+                       <label>Club Type</label>
+                       <select name="ddlclubtypes" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlclubtypes\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlclubtypes">
+		<option value="All"> a Club Type</option>
+		<option value="Wedge">Wedge (7214) </option>
+		<option value="Hybrid">Hybrid (2677) </option>
+		<option value="Iron">Iron (5345) </option>
+		<option value="Fairway Wood">Fairway Wood (3128) </option>
+
+	</select>
+                    </li>
+                    <li>
+                        <label>Manufacturer</label>
+                       <select name="ddlManf" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlManf\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlManf">
+		<option value="All">Select a Manufacturer</option>
+		<option value="All">Select A Manufacturer</option>
+		<option value=" ">  (8) </option>
+		<option value="1879 Co. Ltd.">1879 Co. Ltd. (2) </option>
+		<option value="A Design Golf Inc">A Design Golf Inc (21) </option>
+		<option value="Acushnet Company">Acushnet Company (957) </option>
+		<option value="Adams Golf">Adams Golf (20) </option>
+		<option value="Advance Co Ltd">Advance Co Ltd (6) </option>
+		<option value="Advance Products GmbH (previously called K-Mat GmbH Golf Devision)">Advance Products GmbH (previously called K-Mat GmbH Golf Devision) (4) </option>
+		<option value="Akira Products Co Ltd">Akira Products Co Ltd (26) </option>
+		<option value="Alien Golf">Alien Golf (4) </option>
+		<option value="Alpen Co Ltd">Alpen Co Ltd (1) </option>
+		<option value="AM Golf Equipment">AM Golf Equipment (1) </option>
+		<option value="ARGOLF">ARGOLF (3) </option>
+		<option value="Arts &amp; Golf Workshop">Arts &amp; Golf Workshop (6) </option>
+		<option value="Asahi Golf Co Ltd">Asahi Golf Co Ltd (15) </option>
+		<option value="Avanti Corporation">Avanti Corporation (1) </option>
+		<option value="Axis Golf Co Ltd">Axis Golf Co Ltd (28) </option>
+		<option value="B.I.G. Stealex GmbH">B.I.G. Stealex GmbH (7) </option>
+		<option value="Ben Hogan Company">Ben Hogan Company (3) </option>
+		<option value="Ben Hogan Golf Equipment Co.">Ben Hogan Golf Equipment Co. (50) </option>
+		<option value="Benross Golf">Benross Golf (8) </option>
+		<option value="Best Tech Co Ltd">Best Tech Co Ltd (6) </option>
+		<option value="Bettinardi Golf">Bettinardi Golf (16) </option>
+		<option value="Big Apple Golf Inc">Big Apple Golf Inc (1) </option>
+		<option value="Big Fish Golf Holdings PG Ltd">Big Fish Golf Holdings PG Ltd (3) </option>
+		<option value="Big Fish Golf International Pte Ltd">Big Fish Golf International Pte Ltd (3) </option>
+		<option value="Big Shot Golf">Big Shot Golf (1) </option>
+		<option value="Bigme Golf">Bigme Golf (3) </option>
+		<option value="Birth Corporation">Birth Corporation (2) </option>
+		<option value="Blade Runner Golf, Inc.">Blade Runner Golf, Inc. (10) </option>
+		<option value="Blue Lotus Co Ltd">Blue Lotus Co Ltd (1) </option>
+		<option value="Boccieri Golf">Boccieri Golf (8) </option>
+		<option value="BombTech Golf">BombTech Golf (4) </option>
+		<option value="Bridgestone Sports Co Ltd">Bridgestone Sports Co Ltd (125) </option>
+		<option value="Bronty Golf Company Limited">Bronty Golf Company Limited (1) </option>
+		<option value="Brosnan Golf Australia">Brosnan Golf Australia (4) </option>
+		<option value="Burrows Golf">Burrows Golf (3) </option>
+		<option value="Caley Ltd">Caley Ltd (3) </option>
+		<option value="Callaway Golf">Callaway Golf (672) </option>
+		<option value="Callaway Golf Company">Callaway Golf Company (53) </option>
+		<option value="Carnahan Golf">Carnahan Golf (6) </option>
+		<option value="Central Kosho Co Ltd">Central Kosho Co Ltd (12) </option>
+		<option value="Champion Sports">Champion Sports (2) </option>
+		<option value="Charles Claire LLP">Charles Claire LLP (8) </option>
+		<option value="Chiyoda Co Ltd">Chiyoda Co Ltd (3) </option>
+		<option selected="selected" value="Chujo Co Ltd">Chujo Co Ltd (10) </option>
+		<option value="Circle Creek P/L, Trading as Prosimmon Golf">Circle Creek P/L, Trading as Prosimmon Golf (4) </option>
+		<option value="Cleveland Golf">Cleveland Golf (757) </option>
+		<option value="Climb Free Co Ltd">Climb Free Co Ltd (6) </option>
+		<option value="Club Factory GmbH">Club Factory GmbH (7) </option>
+		<option value="Coates Golf">Coates Golf (10) </option>
+		<option value="Cobra Golf, Inc.">Cobra Golf, Inc. (2) </option>
+		<option value="Cobra PUMA Golf">Cobra PUMA Golf (131) </option>
+		<option value="Composite Techno Co., Ltd.">Composite Techno Co., Ltd. (1) </option>
+		<option value="Cosmo Golf Company">Cosmo Golf Company (1) </option>
+		<option value="Crosscut Wedge Co., LLC">Crosscut Wedge Co., LLC (2) </option>
+		<option value="Cutter Golf">Cutter Golf (3) </option>
+		<option value="Daishin Golf Company">Daishin Golf Company (1) </option>
+		<option value="David Corporation">David Corporation (1) </option>
+		<option value="Decathlon SE">Decathlon SE (14) </option>
+		<option value="DeLaCruz Golf">DeLaCruz Golf (1) </option>
+		<option value="Delta Industry Co Ltd">Delta Industry Co Ltd (3) </option>
+		<option value="Diamond Golf International Ltd">Diamond Golf International Ltd (11) </option>
+		<option value="Dick&#39;s Sporting Goods">Dick&#39;s Sporting Goods (51) </option>
+		<option value="Direct Golf Uk">Direct Golf Uk (3) </option>
+		<option value="Doctor Golf Co Ltd">Doctor Golf Co Ltd (2) </option>
+		<option value="Donnay Golf">Donnay Golf (1) </option>
+		<option value="DTB Golf">DTB Golf (12) </option>
+		<option value="Edel Golf">Edel Golf (46) </option>
+		<option value="Edison Golf Company">Edison Golf Company (9) </option>
+		<option value="Eidolon Brands, LLC">Eidolon Brands, LLC (8) </option>
+		<option value="Eiger Enterprise Co Ltd">Eiger Enterprise Co Ltd (6) </option>
+		<option value="Eon Sports Co Ltd">Eon Sports Co Ltd (4) </option>
+		<option value="Epon Golf Co Ltd">Epon Golf Co Ltd (22) </option>
+		<option value="Epon Golf North America">Epon Golf North America (7) </option>
+		<option value="Even Golf">Even Golf (7) </option>
+		<option value="F2 Golf">F2 Golf (9) </option>
+		<option value="Face Forward Technologies LLC">Face Forward Technologies LLC (2) </option>
+		<option value="Fairway Club">Fairway Club (8) </option>
+		<option value="Feel Golf Company">Feel Golf Company (27) </option>
+		<option value="First Company Limited">First Company Limited (1) </option>
+		<option value="Fitting Korea Co Ltd">Fitting Korea Co Ltd (3) </option>
+		<option value="Flynn Golf LLC">Flynn Golf LLC (21) </option>
+		<option value="Forging Technologies (Formerly Gimar Golf)">Forging Technologies (Formerly Gimar Golf) (6) </option>
+		<option value="Formerly JAMA Golf">Formerly JAMA Golf (4) </option>
+		<option value="Foshan Yibang Golf Goods Co Limited">Foshan Yibang Golf Goods Co Limited (4) </option>
+		<option value="Founders Club">Founders Club (2) </option>
+		<option value="Fourteen Co Ltd">Fourteen Co Ltd (119) </option>
+		<option value="Freiheit Co Ltd">Freiheit Co Ltd (8) </option>
+		<option value="Fuji Kihan Company Limited">Fuji Kihan Company Limited (1) </option>
+		<option value="Fujiki Corporation Co., Ltd">Fujiki Corporation Co., Ltd (10) </option>
+		<option value="Fujimoto Gikoh Co.,Ltd">Fujimoto Gikoh Co.,Ltd (47) </option>
+		<option value="G Force Golf">G Force Golf (1) </option>
+		<option value="G P S Co. Ltd.">G P S Co. Ltd. (1) </option>
+		<option value="GabeGolf">GabeGolf (7) </option>
+		<option value="Gary Woolgar">Gary Woolgar (1) </option>
+		<option value="George Spirits Corporation">George Spirits Corporation (6) </option>
+		<option value="George Spirits Golf">George Spirits Golf (10) </option>
+		<option value="Geotech Golf Components Co Ltd">Geotech Golf Components Co Ltd (36) </option>
+		<option value="Globeride Inc">Globeride Inc (7) </option>
+		<option value="Golf Design INTL Co Ltd">Golf Design INTL Co Ltd (2) </option>
+		<option value="Golf Knack LLC">Golf Knack LLC (3) </option>
+		<option value="Golf Korea Co. Ltd.">Golf Korea Co. Ltd. (7) </option>
+		<option value="Golf Lab G Select">Golf Lab G Select (2) </option>
+		<option value="Golf Partner Co Ltd">Golf Partner Co Ltd (29) </option>
+		<option value="Golf Tailor">Golf Tailor (15) </option>
+		<option value="Golf-Do Co Ltd">Golf-Do Co Ltd (3) </option>
+		<option value="GolfNCo Co Ltd (E2Golf Co Ltd)">GolfNCo Co Ltd (E2Golf Co Ltd) (3) </option>
+		<option value="Golfsmart(M)SDN BHD">Golfsmart(M)SDN BHD (3) </option>
+		<option value="Golfsmith International, Inc.">Golfsmith International, Inc. (25) </option>
+		<option value="Gracieux Art Design Inc">Gracieux Art Design Inc (2) </option>
+		<option value="Grand Prix Co Ltd">Grand Prix Co Ltd (40) </option>
+		<option value="Greaton Co Ltd">Greaton Co Ltd (3) </option>
+		<option value="Grind Golf Clubs">Grind Golf Clubs (1) </option>
+		<option value="Grindworks Company Limited">Grindworks Company Limited (38) </option>
+		<option value="Guardian Golf">Guardian Golf (1) </option>
+		<option value="GV Golf Korea">GV Golf Korea (6) </option>
+		<option value="GV Golf Korea Co Ltd">GV Golf Korea Co Ltd (1) </option>
+		<option value="Hakusa Golf Europe (Golf Club Docteur)">Hakusa Golf Europe (Golf Club Docteur) (3) </option>
+		<option value="Hana Co Ltd">Hana Co Ltd (8) </option>
+		<option value="Harada &amp; Co. Ltd.">Harada &amp; Co. Ltd. (1) </option>
+		<option value="Haraken Co Ltd">Haraken Co Ltd (4) </option>
+		<option value="Harima Golf Co Ltd">Harima Golf Co Ltd (1) </option>
+		<option value="Haywood Golf">Haywood Golf (4) </option>
+		<option value="Henry-Griffitts, Inc.">Henry-Griffitts, Inc. (3) </option>
+		<option value="Hireko Golf">Hireko Golf (12) </option>
+		<option value="Hirota Golf Co Ltd">Hirota Golf Co Ltd (9) </option>
+		<option value="Honma Golf Co Ltd">Honma Golf Co Ltd (78) </option>
+		<option value="Hono Golf Enterprise Co Ltd">Hono Golf Enterprise Co Ltd (2) </option>
+		<option value="Honshin Sports Pte Ltd">Honshin Sports Pte Ltd (1) </option>
+		<option value="Hopkins Golf">Hopkins Golf (16) </option>
+		<option value="iGen Golf">iGen Golf (3) </option>
+		<option value="Ikasu Golf">Ikasu Golf (4) </option>
+		<option value="Indi Golf">Indi Golf (42) </option>
+		<option value="Iomic Inc">Iomic Inc (10) </option>
+		<option value="Iracon GmbH">Iracon GmbH (3) </option>
+		<option value="J E Net  Co Ltd">J E Net  Co Ltd (4) </option>
+		<option value="J Golf Co Ltd">J Golf Co Ltd (2) </option>
+		<option value="J. Greed Co., Ltd.">J. Greed Co., Ltd. (5) </option>
+		<option value="Japan Golf Equipment Co Ltd">Japan Golf Equipment Co Ltd (14) </option>
+		<option value="Japana Co Ltd">Japana Co Ltd (41) </option>
+		<option value="Japana Co Ltd (Golf Planner)">Japana Co Ltd (Golf Planner) (26) </option>
+		<option value="Jason Fitting Solution">Jason Fitting Solution (7) </option>
+		<option value="Jason Golf Corp">Jason Golf Corp (2) </option>
+		<option value="John Letters (Formerly John Letters Golf Limited)">John Letters (Formerly John Letters Golf Limited) (9) </option>
+		<option value="Jopro Co Ltd">Jopro Co Ltd (1) </option>
+		<option value="Jordan Golf Cologne GmbH &amp; Co Kg">Jordan Golf Cologne GmbH &amp; Co Kg (3) </option>
+		<option value="JP Golf">JP Golf (12) </option>
+		<option value="Jucie Inc">Jucie Inc (9) </option>
+		<option value="Justick Co Ltd">Justick Co Ltd (25) </option>
+		<option value="K-Mat GmbH Golf Division">K-Mat GmbH Golf Division (4) </option>
+		<option value="Kamui Works Japan Co Ltd">Kamui Works Japan Co Ltd (21) </option>
+		<option value="Kanamori Co Ltd (Gorilla Golf)">Kanamori Co Ltd (Gorilla Golf) (35) </option>
+		<option value="Kasco Corporation">Kasco Corporation (4) </option>
+		<option value="Kayson Golf Ltd">Kayson Golf Ltd (9) </option>
+		<option value="Keigekiku Co Ltd">Keigekiku Co Ltd (11) </option>
+		<option value="kenichi Korea Co Ltd (Kenichi Studio)">kenichi Korea Co Ltd (Kenichi Studio) (5) </option>
+		<option value="Kenmotsu Golf Equipment Manufacturing Co">Kenmotsu Golf Equipment Manufacturing Co (3) </option>
+		<option value="Kentack Golf Co Ltd">Kentack Golf Co Ltd (4) </option>
+		<option value="Khan Golf Co Ltd">Khan Golf Co Ltd (11) </option>
+		<option value="KMJ">KMJ (1) </option>
+		<option value="Koei Golf Seisakusho">Koei Golf Seisakusho (8) </option>
+		<option value="Kolon Industries, Inc.">Kolon Industries, Inc. (8) </option>
+		<option value="KZG">KZG (81) </option>
+		<option value="Lawson Link Ltd">Lawson Link Ltd (1) </option>
+		<option value="Lazrus Golf LLC">Lazrus Golf LLC (7) </option>
+		<option value="Logical One Golf">Logical One Golf (3) </option>
+		<option value="Lovett Golf Company">Lovett Golf Company (3) </option>
+		<option value="Lynx Co Ltd">Lynx Co Ltd (6) </option>
+		<option value="Lynx Golf">Lynx Golf (2) </option>
+		<option value="MacGregor Golf Co.">MacGregor Golf Co. (8) </option>
+		<option value="Macgregor Golf Japan Ltd">Macgregor Golf Japan Ltd (20) </option>
+		<option value="Made To Measure Golf GmbH &amp; Co. KG (MTM Golf)">Made To Measure Golf GmbH &amp; Co. KG (MTM Golf) (4) </option>
+		<option value="Maretec Co Ltd">Maretec Co Ltd (8) </option>
+		<option value="Maruman &amp; Co Ltd">Maruman &amp; Co Ltd (9) </option>
+		<option value="Masdagolf Inc">Masdagolf Inc (2) </option>
+		<option value="Masters Co Ltd">Masters Co Ltd (10) </option>
+		<option value="MCM Golf Inc">MCM Golf Inc (8) </option>
+		<option value="Medicus/Kick X">Medicus/Kick X (3) </option>
+		<option value="Mevaeru Co Ltd">Mevaeru Co Ltd (4) </option>
+		<option value="MFS Korea Co Ltd">MFS Korea Co Ltd (21) </option>
+		<option value="MGolf International AS">MGolf International AS (1) </option>
+		<option value="Millennium Golf AS">Millennium Golf AS (13) </option>
+		<option value="Millennium Golf Inc">Millennium Golf Inc (3) </option>
+		<option value="Miura Giken Co Ltd">Miura Giken Co Ltd (36) </option>
+		<option value="Miura Golf Inc">Miura Golf Inc (61) </option>
+		<option value="Mizuno Corp.">Mizuno Corp. (323) </option>
+		<option value="MK Trading Co Ltd">MK Trading Co Ltd (2) </option>
+		<option value="Momentus Golf">Momentus Golf (1) </option>
+		<option value="Muziik Co Ltd">Muziik Co Ltd (1) </option>
+		<option value="Nakashima Golf">Nakashima Golf (9) </option>
+		<option value="New Level Golf">New Level Golf (44) </option>
+		<option value="Nickent Golf Equipment">Nickent Golf Equipment (10) </option>
+		<option value="Nicklaus Golf Equipment Co., L.C.">Nicklaus Golf Equipment Co., L.C. (4) </option>
+		<option value="Nike Golf">Nike Golf (245) </option>
+		<option value="Noble Golf Sports Co Limited">Noble Golf Sports Co Limited (1) </option>
+		<option value="O-TA Precision Industry Co Ltd">O-TA Precision Industry Co Ltd (1) </option>
+		<option value="One Fox Co Ltd">One Fox Co Ltd (4) </option>
+		<option value="Oxylane Inesis">Oxylane Inesis (2) </option>
+		<option value="P&amp;P Imports LLC">P&amp;P Imports LLC (6) </option>
+		<option value="PG Trading C">PG Trading C (3) </option>
+		<option value="Pigeon Golf">Pigeon Golf (6) </option>
+		<option value="Pinemeadow Golf Products, Inc. (dba Carnahan Golf)">Pinemeadow Golf Products, Inc. (dba Carnahan Golf) (6) </option>
+		<option value="PING, Inc.">PING, Inc. (470) </option>
+		<option value="Piranha Golf">Piranha Golf (4) </option>
+		<option value="Piretti Golf">Piretti Golf (9) </option>
+		<option value="Plus 2 International, Inc.">Plus 2 International, Inc. (5) </option>
+		<option value="Point n Putt PTY Ltd">Point n Putt PTY Ltd (1) </option>
+		<option value="Potter Enterprises">Potter Enterprises (1) </option>
+		<option value="PowerBilt Golf">PowerBilt Golf (3) </option>
+		<option value="PR Dionne, Inc.">PR Dionne, Inc. (3) </option>
+		<option value="Prestige Golf">Prestige Golf (1) </option>
+		<option value="Prestige Golf (UK) Ltd">Prestige Golf (UK) Ltd (1) </option>
+		<option value="PRGR Co Ltd (Yokohama Rubber Co Ltd)">PRGR Co Ltd (Yokohama Rubber Co Ltd) (84) </option>
+		<option value="Pro-Tract Golf Equipment">Pro-Tract Golf Equipment (1) </option>
+		<option value="Professional Golf Europe Ltd">Professional Golf Europe Ltd (15) </option>
+		<option value="Punch Golf">Punch Golf (4) </option>
+		<option value="Pure Spin Golf, Inc.">Pure Spin Golf, Inc. (3) </option>
+		<option value="PXG-Parsons Xtreme Golf">PXG-Parsons Xtreme Golf (226) </option>
+		<option value="Pyramid Golf">Pyramid Golf (1) </option>
+		<option value="Qvis International Co Ltd">Qvis International Co Ltd (2) </option>
+		<option value="Ram Golf Corp.">Ram Golf Corp. (1) </option>
+		<option value="Renegar Golf LLC">Renegar Golf LLC (6) </option>
+		<option value="Rife Golf">Rife Golf (6) </option>
+		<option value="Roir Japan Co">Roir Japan Co (53) </option>
+		<option value="Royal Collection">Royal Collection (11) </option>
+		<option value="Royal Collection Inc">Royal Collection Inc (37) </option>
+		<option value="Ryoma Golf Co Ltd">Ryoma Golf Co Ltd (1) </option>
+		<option value="Sandbully">Sandbully (1) </option>
+		<option value="Scott Golf USA LC">Scott Golf USA LC (3) </option>
+		<option value="Scratch Golf">Scratch Golf (1) </option>
+		<option value="Seiko Sports Life Co Ltd">Seiko Sports Life Co Ltd (6) </option>
+		<option value="Simon Golf Company">Simon Golf Company (1) </option>
+		<option value="SM Global, LLC">SM Global, LLC (3) </option>
+		<option value="Smithworks Golf">Smithworks Golf (23) </option>
+		<option value="Solinco LLC">Solinco LLC (1) </option>
+		<option value="Solus Golf">Solus Golf (15) </option>
+		<option value="Southern California Design Company">Southern California Design Company (6) </option>
+		<option value="Spalding Sports Worldwide">Spalding Sports Worldwide (2) </option>
+		<option value="Specialist Golf Limited">Specialist Golf Limited (2) </option>
+		<option value="SSP Ltd">SSP Ltd (8) </option>
+		<option value="Sub 70 Golf">Sub 70 Golf (108) </option>
+		<option value="Sumitomo Rubber Industries Ltd">Sumitomo Rubber Industries Ltd (93) </option>
+		<option value="Sumitomo Rubber Industries Ltd.">Sumitomo Rubber Industries Ltd. (39) </option>
+		<option value="Swing Puzzle">Swing Puzzle (2) </option>
+		<option value="Takomo Golf Company">Takomo Golf Company (4) </option>
+		<option value="TaylorMade Golf Company">TaylorMade Golf Company (189) </option>
+		<option value="TeeOlive LLP">TeeOlive LLP (12) </option>
+		<option value="The Club Nut LLC">The Club Nut LLC (6) </option>
+		<option value="The Dream Golf">The Dream Golf (5) </option>
+		<option value="The Golfworks">The Golfworks (36) </option>
+		<option value="Three Luck Co Ltd">Three Luck Co Ltd (12) </option>
+		<option value="Tokai Golf Co Ltd">Tokai Golf Co Ltd (5) </option>
+		<option value="Tom Wishon Golf Technology">Tom Wishon Golf Technology (6) </option>
+		<option value="Tommy Armour Golf Limited">Tommy Armour Golf Limited (1) </option>
+		<option value="Top Flite Golf">Top Flite Golf (3) </option>
+		<option value="Top-Flite Golf Company">Top-Flite Golf Company (2) </option>
+		<option value="Tour Edge Golf Mfg.">Tour Edge Golf Mfg. (37) </option>
+		<option value="TourShot Golf Co., Inc.">TourShot Golf Co., Inc. (1) </option>
+		<option value="Traditional Sport Limited">Traditional Sport Limited (5) </option>
+		<option value="Trial Company Limited">Trial Company Limited (12) </option>
+		<option value="Tsuruya Golf Co Ltd">Tsuruya Golf Co Ltd (1) </option>
+		<option value="TTO Corporation">TTO Corporation (1) </option>
+		<option value="Turf Co Ltd">Turf Co Ltd (4) </option>
+		<option value="Txema, Inc.">Txema, Inc. (3) </option>
+		<option value="U.S. Kids Golf">U.S. Kids Golf (15) </option>
+		<option value="Universal Sports Ltd">Universal Sports Ltd (1) </option>
+		<option value="Value Plus Co Ltd">Value Plus Co Ltd (5) </option>
+		<option value="Wako Enterprise Ltd">Wako Enterprise Ltd (18) </option>
+		<option value="Warrior Custom Golf">Warrior Custom Golf (13) </option>
+		<option value="Wedge FX">Wedge FX (5) </option>
+		<option value="Williams Racing Golf">Williams Racing Golf (1) </option>
+		<option value="Wilson Sporting Goods">Wilson Sporting Goods (71) </option>
+		<option value="Winbird Co Ltd">Winbird Co Ltd (10) </option>
+		<option value="Work&#39;s Inc">Work&#39;s Inc (2) </option>
+		<option value="Works Co Ltd">Works Co Ltd (9) </option>
+		<option value="Worldwide Golf Brands Ltd">Worldwide Golf Brands Ltd (6) </option>
+		<option value="Xiamen Jasde Sports Equipment Co., Ltd.">Xiamen Jasde Sports Equipment Co., Ltd. (27) </option>
+		<option value="Yamaha Corporation">Yamaha Corporation (47) </option>
+		<option value="Yonex Co Ltd">Yonex Co Ltd (79) </option>
+		<option value="Yoshimura Golf Co Ltd">Yoshimura Golf Co Ltd (16) </option>
+		<option value="Zodia Company Limited">Zodia Company Limited (22) </option>
+
+	</select>
+                    </li>
+                    <li>
+                       <label>Product Name</label>
+                       <select name="ddlproduct" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlproduct\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlproduct">
+		<option value="All">All</option>
+		<option selected="selected" value="All">All</option>
+		<option value="All">All</option>
+		<option value="Tour Champ MW-10">Tour Champ MW-10 (2) </option>
+		<option value="BW-02 (First Article)">BW-02 (First Article) (5) </option>
+		<option value="Kamui Forged (black finish)">Kamui Forged (black finish) (5) </option>
+
+	</select>
+
+                    </li>
+       </ol>
+
+</div>
+
+          <div class="buttons">
+
+                        <input type="submit" name="btnSubmit" value="VIEW" onclick="clickme(); return false;" id="btnSubmit" class="formButton" />
+                </div>
+
+
+
+
+
+</div>
+
+</form>
+<script type="text/javascript">
+    function clickme() {
+
+        var clubtype = $('#ddlclubtypes').val();
+        var Manf = $('#ddlManf').val();
+
+        //replace + sign in product description before passing due to urlencoding, will replace it back to + sign in resultdisplay.aspx.cs
+        var replaceplussign = $('#ddlproduct').val();
+        var prod = replaceplussign.replace("+", "~")
+
+        //var prod = $('#ddlproduct').val();
+
+        //window.location.href = "ResultDisplay.aspx?clubtype=" + clubtype + "&Manf=" + Manf + "&Prod=" + prod;
+        //alert('hi');
+        var isValid = true;
+        switch (clubtype) {
+            case "All":
+                if (Manf == "All") {
+                    alert('Select a Club Type and a Manufacturer.')
+                }
+                else {
+                    alert('Select a Club Type.')
+                }
+                isValid = false;
+                break;
+            default:
+                if (Manf == "All") {
+                    alert('Select a Manufacturer.')
+                    isValid = false;
+                }
+
+        }
+        if (isValid) {
+
+            $.ajax({
+                type: "POST",
+                url: "Search.aspx/GetResponse",
+                data: "{'clubtype':'" + clubtype + "','sManf':'All','sProd':'All'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response.d == true) {
+                        //alert('hi');
+                        window.location.href = "ResultDisplay.aspx?clubtype=" + clubtype + "&Manf=" + Manf + "&Prod=" + prod;
+
+                    }
+                },
+                failure: function (response) {
+                    alert(response.d);
+                }
+            });
+        }
+    }
+
+</script>
+
+  <link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#txtAutoComplete").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        url: "Search.aspx/keywordSearch",
+                        data: "{'word':'" + $("#txtAutoComplete").val() + "'}",
+                        dataType: "json",
+                        success: function (data) {
+
+                            response(data.d);
+                        },
+                        error: function (result) {
+                            alert("Error");
+                        }
+                    });
+                }
+            });
+        });
+
+    </script>
+
+                </div>
+            </div>
+          </div>
 </body>
 </html>
